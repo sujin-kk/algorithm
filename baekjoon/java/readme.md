@@ -30,6 +30,22 @@ StringTokenizer st = new StringTokenizer(문자열 , 구분자 , true/false);
     - ST는 결과값이 문자열(String), split은 결과값이 문자열 배열(String[])
     - ST를 이용할 경우 전체 토큰을 보고싶다면 반복문을 이용해 하나하나 뽑아야 함
 
+```
+    // sol 1)
+    String str = br.readLine(); // 2 ABC
+    StringTokenizer st = new StringTokenizer(str, " ");
+    int R = Integer.parseInt(st.nextToken());
+    String S = st.nextToken();
+```
+
+```
+    // sol 2)
+    String[] str = br.readLine().split(" "); // 3, ABC
+    int R = Integer.parseInt(str[0]); // 3
+    String S = str[1]; // ABC
+```
+
+
 # for each문
 ```sh
 for (각 요소 : 배열 or 컨테이너) {
