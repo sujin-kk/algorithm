@@ -5,5 +5,5 @@
 |#    |Title                                            |Type         |Solution                                                                                  |
 |-----|-------------------------------------------------|-------------|------------------------------------------------------------------------------------------|
 |1476 |[날짜계산](https://www.acmicpc.net/problem/1476) |bruteforcing |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/bruteforcing/1476.kt) |
-|     |                                                 |             |                                                                                          |
-|     |                                                 |             |                                                                                          |
+|4673 |[셀프넘버](https://www.acmicpc.net/problem/4673)|bruteforcing |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/bruteforcing/4673.kt)   |
+|14501 |[퇴사](https://www.acmicpc.net/problem/14501) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/14501.kt) |
