@@ -5,7 +5,6 @@ fun main(args: Array<String>) = with(Scanner(System.`in`)) {
     val N = nextInt()
     val schedules = arrayListOf<Pair<Int, Int>>()
     val income = IntArray(N+1) { 0 }
-    println(income.size)
 
     for(i in 0 until N) {
         schedules.add(Pair(nextInt(), nextInt()))
