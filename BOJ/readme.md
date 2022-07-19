@@ -11,3 +11,4 @@
 |1149 |[RGB거리](https://www.acmicpc.net/problem/1149) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/1149.kt) |
 |17298 |[오큰수](https://www.acmicpc.net/problem/17298) |stack |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/stack/17298.kt) |
 |1874 |[스택수열](https://www.acmicpc.net/problem/17298) |stack |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/stack/1874.kt) |
+|2225 |[합분해](https://www.acmicpc.net/problem/2225) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/2225.kt) |
