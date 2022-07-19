@@ -12,3 +12,4 @@
 |17298 |[오큰수](https://www.acmicpc.net/problem/17298) |stack |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/stack/17298.kt) |
 |1874 |[스택수열](https://www.acmicpc.net/problem/17298) |stack |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/stack/1874.kt) |
 |2225 |[합분해](https://www.acmicpc.net/problem/2225) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/2225.kt) |
+|11053 |[가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/11053.kt) |
