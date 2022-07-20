@@ -14,3 +14,5 @@
 |2225 |[합분해](https://www.acmicpc.net/problem/2225) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/2225.kt) |
 |11053 |[가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/11053.kt) |
 |10844 |[쉬운 계단 수](https://www.acmicpc.net/problem/10844) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/10844.kt) |
+|1699 |[제곱수의 합](https://www.acmicpc.net/problem/1699) |dp |[Kotlin](https://github.com/sujin-kk/algorithm/blob/main/BOJ/kotlin/dp/1699.kt) |
+
