@@ -95,6 +95,19 @@ ex) 가중치 존재 O
 
 ---
 
+##### 연결 요소 (Connected Component)
+
+- 그래프가 하나일 수도, 두개일 수도 있다.
+- 아래의 그래프는 2개의 연결 요소로 이루어짐.
+
+<img width="570" alt="image" src="https://user-images.githubusercontent.com/85485290/182122944-29118c5b-e8c7-4bec-9006-13c8303a7635.png">
+
+
+##### 이분 그래프 (Bipartitie Graph)
+
+- 아래의 그래프는 그룹1 / 그룹2로 나눌 수 있음.
+
+<img width="570" alt="image" src="https://user-images.githubusercontent.com/85485290/182123430-e39c63df-2d4c-4915-9fc0-8a575329409c.png">
 
 
 
