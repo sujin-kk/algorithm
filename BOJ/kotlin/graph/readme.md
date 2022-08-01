@@ -1,188 +1,94 @@
 
-### 나머지 연산
-Modular
-
-```
-// 덧셈
-(A + B) mod M = ((A mod M) + (B mod M)) mod M
-
-// 곱셈
-(A x B) mod M = ((A mod M) x (B mod M)) mod M
-
-// 뺄셈
-(A - B) mod M = ((A mod M) - (B mod M) + M) mod M
-```
-
-*****
-
-### 최대공약수
-GCD (Greatest Common Divisor)
-
-- 두 수 A와 B의 최대 공약수 G는 A와 B의 공통 약수 중 가장 큰 정수이다.
-- GCD를 구하는 가장 쉬운 방법은 2부터 min(A, B)까지 모든 정수로 나누어 보는 방법
-- GCD가 1인 두 수를 서로소(Coprime)이라고 한다.
-
-sol 1)
-
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177326442-7e286f9f-c0e2-4a37-a558-2be0a06e3698.png">
-
-* N = max(A, B) 라고 할때, 시간 복잡도 O(N)
-
-sol 2)
-
-#### 유클리드 호제법 (Euclidean algorithm)
-
-- a mod b = r 이라고 할때,
-- ```GCD(a, b) = GCD(b, r)```이 성립한다.
-- r이 0이될 때의 b가 최대 공약수이다.
+### 그래프 표현
 
 ex)
-GCD(24, 16) = GCD(16, 8) = GCD(8, 0) = 8
+- 정점 : {1, 2, 3, 4, 5, 6}
+- 간선 : {(1,2), (1,5), (2,5), (2,3), (3,4), (2,4), (4,5), (4,6)}
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/85485290/182104487-c88cef6e-12af-429f-8d6b-a518e9d64a30.png">
 
-```재귀함수로 구현한 유클리드 호제법 ```
+- 그래프 저장 방법
+한 정점 X와 연결된 간선을 효율적으로 찾는 구조
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177327393-3ba54966-80f9-4439-a080-865d1e307e55.png">
+#### 1. 인접 행렬 (Adjacency-matrix)
 
-```재귀를 사용하지 않은 유클리드 호제법 ```
+정점의 개수 : ```V```, 간선 개수 : ```E```
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177327781-e63f79f9-0e2e-4f73-b560-9edcc0b9ed5d.png">
+```
+A[i][j] = 1 (i -> j 간선이 있을 때, 가중치 1)
+A[i][j] = 0 (간선이 없을 때)
+```
 
-* 시간 복잡도 O(logN)
+한 정점과 연결 된 모든 간선을 구하는데 걸리는 시간복잡도 : ```O(V)```
+공간 복잡도 : ```O(V^2)``` -> (VxV 크기의 이차원 배열 이용)
 
-*****
+ex) 가중치 존재 O
 
-### 최소공배수
-LCM (Least Common Multiple)
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/85485290/182105190-e553661b-c7ea-4703-91d2-35a8a8dd69a9.png">
 
-- 두 수 A와 B의 최소 공배수는 두 수의 공통된 배수 중에서 가장 작은 정수
-- A와 B의 최대 공약수를 ```G```라고 햇을 때, 
-- ```A x B = GCD x LCM``` 이 성립
-- 최소 공배수 ```L = (A * B) / G ```
 
-*****
+#### 2. 인접 리스트(Adjacency-list) ✨
 
-### 소수
-Prime Number
+A[i] = i와 연결된 정점을 리스트로 포함
+```LinkedList``` 와 같이 크기를 동적으로 변경할 수 있는 배열 사용
 
-- 소수 : 약수가 1과 자기 자신 밖에 없는 수
-- N이 소수가 되려면, 2 이상 N-1 이하의 자연수로 나누어 떨어지면 안됨
+한 정점과 연결 된 모든 간선을 구하는데 걸리는 시간복잡도 : ```O(차수)```
+공간 복잡도 : ```O(E)``` -> (간선의 개수 E와 동일)
 
-> 소수 알고리즘 두 가지
 
-sol 1) 어떤 수 N이 소수인지 아닌지 판별하는 방법
+ex) 가중치 존재 X
 
-💡 어떤 수 ```N = A x B```로 나타낼 때, N이 소수가 아니라면 ```A의 최소 = 2``` & ```B의 최대 N/2```
+<img width="414" alt="image" src="https://user-images.githubusercontent.com/85485290/182105834-eafc51ca-0681-4c95-9f53-f88df7995ca2.png">
 
-```즉, (N/2 + 1) ~ (N -1) 까지는 절대 약수가 있을 수가 없음```
+ex) 가중치 존재 O
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177329909-99a886a7-35f7-4c36-8b1c-5c15e075b120.png">
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/85485290/182106063-0cdcb623-f682-47d8-b2d9-9cf6b0d99b67.png">
 
-* 시간 복잡도 = O(logN/2) = O(logN)
+#### 3. 간선 리스트 (Edge List)
 
-OR
+인접 리스트를 사용해야 하는데 라이브러리를 쓰지 않을 때,
+링크드리스트로 구현하자니 링크드리스트를 직접 구현하기 싫을 때 !
 
-💡 어떤 수 ```N = A x B```로 나타낼 때, N이 소수가 아니라면 ```A < √n, B > √n```
+시간 복잡도 : O(차수)
 
-```즉, √n 까지만 검사를 해보면 된다```
+배열을 이용해서 구현, 간선을 E라는 배열에 모두 저장하고 있다. -> 정렬 필요
+<img width="440" alt="image" src="https://user-images.githubusercontent.com/85485290/182107141-fe7a396b-d170-4010-839e-e2a0d94b6fb3.png">
 
-ex) 24의 경우에 √24 = 4.xxx를 기준으로 한쪽만 검사하면 됨
+---
 
-<img width="200" alt="image" src="https://user-images.githubusercontent.com/85485290/177331238-e73f2bcc-33ae-4ad9-96cc-45fee36b3589.png">
+### 그래프 탐색
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177331375-327080bf-509c-4c3e-b86b-68abe2b7683e.png">
+- 목적 : 임의의 정점에서 시작해서, 연결되어 있는 모든 정점을 1번씩 방문하는 것
 
-* 시간 복잡도 = O(√n)
+#### DFS (깊이 우선 탐색, Depth First Search)
 
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/85485290/182112316-02c268c2-caee-45d5-bb50-13a5e8242385.png">
 
+- ```스택```을 이용해서 최대한 깊이 가고, 갈 수 없으면 이전 정점으로 돌아감.
+- 재귀 함수로 구현 (dfs(x) : x를 방문 했을 때)
 
-sol 2) N 이하의 소수를 모두 찾아내는 방법
+<img width="310" alt="image" src="https://user-images.githubusercontent.com/85485290/182112516-4db5a47c-640a-4f1b-ae32-3c738223e26a.png">
 
+- 인접 행렬로 구현 : O(E)
+<img width="267" alt="image" src="https://user-images.githubusercontent.com/85485290/182114144-bd99cf39-536f-48c7-bc16-07659b0d8770.png">
 
-#### 에라토스테네스의 체 (Sieve of Eratosthenes)
 
+#### BFS (넓이 우선 탐색, Breadth First Search) ✨
 
-- 지워지지 않은 수 중에서 가장 작은 수는 2이다.
-- 2는 소수이고 2의 배수를 모두 지운다.
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/85485290/182113801-a936e987-2e17-4d22-9e87-7931dc4b80df.png">
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/85485290/177331936-cdb54ef0-15cf-41f1-a5b6-890a21ab0f3b.png">
+- ```큐```를 이용해서 구현
 
+- 인접 행렬로 구현 : O(E)
+<img width="316" alt="image" src="https://user-images.githubusercontent.com/85485290/182113881-37bb52df-8213-49b5-a27c-19837775ee82.png">
 
-- 3의 배수를 지운다.
-- 3*2 -> 2의 배수 때문에 지워짐, 3*3 부터 지운다.
+---
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/85485290/177332183-b3431629-b6b4-4f9b-baaa-3e74b35cb7da.png">
 
 
-- 5의 배수를 지운다.
-- 5*2, 5*3, 5*4 앞에서 지워짐, 5*5 부터 지운다.
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/85485290/177332330-9dd4511c-2b60-4527-9ab7-1ad1423280b0.png">
 
 
-- 7의 배수를 지운다.
-- 7*2, 7*3, 7*4, 7*5 앞에서 지워짐, 7*7 부터 지운다.
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/85485290/177332435-c025435c-00ae-4d47-96f7-554aa3a6a5b4.png">
-
-
-- 11 * 11 은 100을 넘기 때문에 생략 가능
-
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177332708-0284c346-aa3b-4dff-b012-b73d0f2ce8f4.png">
-
-<img width="550" alt="image" src="https://user-images.githubusercontent.com/85485290/177333532-c49ae62f-94ac-48ed-b334-bf07ef01055b.png">
-
-* 시간 복잡도 = O(NlogN)
-
-
-
-#### 골드바흐의 추측 (Goldbach's conjecture)
-
-<img width="350" alt="image" src="https://user-images.githubusercontent.com/85485290/177333805-9731aeda-58ca-4f2b-b5c2-49f7ad6cdb7f.png">
-
-> 백만 이하의 짝수에 대해서 골드 바흐의 추측을 검증할 수 있다.
-- ```N = A + B``` 일때, ```N - b``` 가 소수인지 검사가 필요함
-
-
-💡 모든 소수는 ```6n+1``` 또는 ```6n+5```의 형태로 나타난다.
-
-
-*****
-
-### 팩토리얼 (Factorial)
-
-```N! = 1 x 2 x ... x N```
-
-[팩토리얼의 0이 몇개인지 알아내는 문제](https://www.acmicpc.net/problem/1676)
-
-<img width="400" alt="image" src="https://user-images.githubusercontent.com/85485290/177335614-fb11e663-562f-432f-a5cf-f3ea2492a000.png">
-
-
-💡 끝자리의 0을 만들어 낼 수 있는 조합은 ``2x5``` 밖에 없다.
-
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/85485290/177336028-b60996aa-d582-41a5-aa75-19cfed0ad773.png">
-
-💡 2보다 5의 개수가 훨씬 적기 때문에, 5의 개수를 세어주면 됨!
-
-
-ex) 100! 의 0의 개수?
-
-- 인수로 5가 들어가는 것을 찾음 -> 100/5 = ```20``` 개
-- 인스로 5가 2개 들어가는 것을 찾음 -> 100/25 = ```4``` 개
-- 전체 5의 개수 ```24``` 개, 즉 ```0의 개수도 24개```
-
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/85485290/177336447-6382f981-1055-4332-b95b-2ea4077f988c.png">
-
-
-
-[조합의 0이 몇개인지 알아내는 문제](https://www.acmicpc.net/problem/2004)
-
-ex) nCm의 0의 개수?
-
-``` nCm = n! / ((n-m)! x m!)```
-
-💡 n!의 0의 개수에서 (n-m)!의 0의 개수와 m!의 0의 개수를 각각 빼주면 된다.
-
-💡 그러나 조합은 2와 5중 뭐가 더 개수가 작을지 모르기 때문에 2와 5 각각 나누어서 ```min```을 해주어야 한다.
 
 
 
