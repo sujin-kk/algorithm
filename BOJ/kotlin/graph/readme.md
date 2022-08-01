@@ -26,6 +26,9 @@ ex) 가중치 존재 O
 <img width="460" alt="image" src="https://user-images.githubusercontent.com/85485290/182105190-e553661b-c7ea-4703-91d2-35a8a8dd69a9.png">
 
 
+---
+
+
 #### 2. 인접 리스트(Adjacency-list) ✨
 
 A[i] = i와 연결된 정점을 리스트로 포함
@@ -43,6 +46,10 @@ ex) 가중치 존재 O
 
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/85485290/182106063-0cdcb623-f682-47d8-b2d9-9cf6b0d99b67.png">
 
+
+---
+
+
 #### 3. 간선 리스트 (Edge List)
 
 인접 리스트를 사용해야 하는데 라이브러리를 쓰지 않을 때,
@@ -51,9 +58,11 @@ ex) 가중치 존재 O
 시간 복잡도 : O(차수)
 
 배열을 이용해서 구현, 간선을 E라는 배열에 모두 저장하고 있다. -> 정렬 필요
+
 <img width="440" alt="image" src="https://user-images.githubusercontent.com/85485290/182107141-fe7a396b-d170-4010-839e-e2a0d94b6fb3.png">
 
 ---
+
 
 ### 그래프 탐색
 
@@ -70,6 +79,9 @@ ex) 가중치 존재 O
 
 - 인접 행렬로 구현 : O(E)
 <img width="267" alt="image" src="https://user-images.githubusercontent.com/85485290/182114144-bd99cf39-536f-48c7-bc16-07659b0d8770.png">
+
+
+---
 
 
 #### BFS (넓이 우선 탐색, Breadth First Search) ✨
